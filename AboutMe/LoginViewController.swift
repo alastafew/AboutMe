@@ -17,12 +17,18 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var foggotPasswordButton: UIButton!
     @IBOutlet private var loginButton: UIButton!
     
+    let loginText = "1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.becomeFirstResponder()
 
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let welcomeVC = segue.destination as? WelcomeViewController
+        welcomeVC?.userName = loginText
+        
+    }
 //    override func touchesBegan(_ touches: Set, with event: UITouch) {
 //        super .touchesBegan(touches, with: event)
 //    }
@@ -30,16 +36,13 @@ final class LoginViewController: UIViewController {
     // MARK: - IB Actions
     @IBAction func loginButtonPress() {
         
-        let loginText = "1"
+        //let loginText = "1"
         let passText = "1"
         let userLogin = loginTextField.text ?? ""
         let userPass = passTextField.text ?? ""
         
         if userLogin == loginText && userPass == passText {
-            showAlert(
-                withTitle: "Correct! Welcome👋",
-                andMessage: "Well done👍"
-            )
+            WelcomeViewController.showDetailTargetDidChangeNotification
         } else if !userLogin.isEmpty && !userPass.isEmpty {
             showAlert(
                 withTitle: "Invalid login or password",
