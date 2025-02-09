@@ -17,36 +17,22 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var foggotPasswordButton: UIButton!
     @IBOutlet private var loginButton: UIButton!
     
-    // MARK: - Propeties
+    // MARK: - Public Propeties
     let loginText = "1"
     let passText = "1"
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTextField.becomeFirstResponder()
 
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
         welcomeVC?.userName = loginText
         
     }
-    
-    /*
-    override func touchesBegan(touches: Set<UITouch>, with event: UITouch) {
-        super .touchesBegan(touches, with: event)
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userNameTextField.text == user, passwordTextField.text == password else {
-            // Введенное имя не валидно, отменяем переход и показываем алерт контроллер
-            return false
-        }
-       
-        // Введенное имя валидно, разрешаем переход
-        return true
-    }
-     */
     
     // MARK: - IB Actions
     @IBAction private func loginButtonPress() {
@@ -79,7 +65,6 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue){
-        _ = segue.source as? WelcomeViewController
         userNameTextField.text = ""
         passwordTextField.text = ""
     }
