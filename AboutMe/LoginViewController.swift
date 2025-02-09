@@ -10,18 +10,20 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet private var loginTextField: UITextField!
-    @IBOutlet private var passTextField: UITextField!
+    @IBOutlet private var userNameTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     
     @IBOutlet private var foggotUsernameButton: UIButton!
     @IBOutlet private var foggotPasswordButton: UIButton!
     @IBOutlet private var loginButton: UIButton!
     
+    // MARK: - Propeties
     let loginText = "1"
+    let passText = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginTextField.becomeFirstResponder()
+        userNameTextField.becomeFirstResponder()
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,29 +31,35 @@ final class LoginViewController: UIViewController {
         welcomeVC?.userName = loginText
         
     }
-//    override func touchesBegan(_ touches: Set, with event: UITouch) {
-//        super .touchesBegan(touches, with: event)
-//    }
+    
+    /*
+    override func touchesBegan(touches: Set<UITouch>, with event: UITouch) {
+        super .touchesBegan(touches, with: event)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard userNameTextField.text == user, passwordTextField.text == password else {
+            // Введенное имя не валидно, отменяем переход и показываем алерт контроллер
+            return false
+        }
+       
+        // Введенное имя валидно, разрешаем переход
+        return true
+    }
+     */
     
     // MARK: - IB Actions
-    @IBAction func loginButtonPress() {
+    @IBAction private func loginButtonPress() {
         
-        //let loginText = "1"
-        let passText = "1"
-        let userLogin = loginTextField.text ?? ""
-        let userPass = passTextField.text ?? ""
+        let userLogin = userNameTextField.text ?? ""
+        let userPass = passwordTextField.text ?? ""
         
         if userLogin == loginText && userPass == passText {
-            WelcomeViewController.showDetailTargetDidChangeNotification
-        } else if !userLogin.isEmpty && !userPass.isEmpty {
+            print("Correct login!")
+        } else {
             showAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "Please, enter correct login and password"
-            )
-        } else {
-            showAlert(
-                withTitle: "Login or password is empty",
-                andMessage: "Please enter login and password"
             )
         }
     }
@@ -69,6 +77,12 @@ final class LoginViewController: UIViewController {
             andMessage: "Password is 1"
         )
     }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue){
+        _ = segue.source as? WelcomeViewController
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
 }
 
 // MARK: - Alert Controller
@@ -83,7 +97,7 @@ private extension LoginViewController {
             title: "OK",
             style: .default
         ) { _ in
-            self.passTextField.text = ""
+            self.passwordTextField.text = ""
         }
         alert.addAction(okAction)
         present(alert, animated: true)
