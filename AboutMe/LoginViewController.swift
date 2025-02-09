@@ -10,12 +10,12 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var loginTextField: UITextField!
-    @IBOutlet var passTextField: UITextField!
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passTextField: UITextField!
     
-    @IBOutlet var foggotUsernameButton: UIButton!
-    @IBOutlet var foggotPasswordButton: UIButton!
-    @IBOutlet var loginButton: UIButton!
+    @IBOutlet private var foggotUsernameButton: UIButton!
+    @IBOutlet private var foggotPasswordButton: UIButton!
+    @IBOutlet private var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +53,14 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func foggotUsernameAlert(_ sender: UIButton) {
+    @IBAction private func foggotUsernameAlert(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops!🥱",
             andMessage: "Username is 1"
         )
     }
     
-    @IBAction func foggotPassword(_ sender: UIButton) {
+    @IBAction private func foggotPassword(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops!😎",
             andMessage: "Password is 1"
