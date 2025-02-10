@@ -36,8 +36,8 @@ final class WelcomeViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
+        gradientLayer.frame = view.bounds
         
-        self.view.layer.insertSublayer(gradientLayer, at:0)
+        view.layer.insertSublayer(gradientLayer, at:0)
     }
 }

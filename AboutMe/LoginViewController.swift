@@ -13,8 +13,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var userNameTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     
-    @IBOutlet private var foggotUsernameButton: UIButton!
-    @IBOutlet private var foggotPasswordButton: UIButton!
     @IBOutlet private var loginButton: UIButton!
     
     // MARK: - Public Propeties
@@ -50,17 +48,17 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction private func foggotUsernameAlert(_ sender: UIButton) {
+    @IBAction private func foggotUsernameAlert() {
         showAlert(
-            withTitle: "Oops!🥱",
-            andMessage: "Username is 1"
+            withTitle: "Oops!",
+            andMessage: "Username is \(loginText)"
         )
     }
     
-    @IBAction private func foggotPassword(_ sender: UIButton) {
+    @IBAction private func foggotPasswordAlert() {
         showAlert(
-            withTitle: "Oops!😎",
-            andMessage: "Password is 1"
+            withTitle: "Oops!",
+            andMessage: "Password is \(passText)"
         )
     }
     

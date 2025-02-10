@@ -55,8 +55,8 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption1"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="foggotUsernameAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IwY-yU-bwJ"/>
-                                            <action selector="loginButtonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="rx1-KJ-DVR"/>
+                                            <action selector="foggotUsernameAlert" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAc-ep-PkS"/>
+                                            <segue destination="g7X-4U-iv1" kind="unwind" unwindAction="unwindFor:" id="4fe-rR-bCx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXd-JG-fab">
@@ -66,7 +66,8 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption1"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="foggotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QrT-5f-nih"/>
+                                            <action selector="foggotPasswordAlert" destination="BYZ-38-t0r" eventType="touchUpInside" id="3SV-cF-WU0"/>
+                                            <segue destination="g7X-4U-iv1" kind="unwind" unwindAction="unwindFor:" id="BH8-eB-t55"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -88,14 +89,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="9JC-zp-AoU"/>
                     <connections>
-                        <outlet property="foggotPasswordButton" destination="rXd-JG-fab" id="Hbr-tu-Jpj"/>
-                        <outlet property="foggotUsernameButton" destination="cuG-ub-rR0" id="dqb-0n-6Mq"/>
                         <outlet property="loginButton" destination="lur-Y2-2ED" id="VyV-Jg-O6d"/>
                         <outlet property="passwordTextField" destination="wFX-dr-OsW" id="LdA-YK-5cM"/>
                         <outlet property="userNameTextField" destination="7jc-JP-M9p" id="zJd-hI-PWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="g7X-4U-iv1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5.5813953488372094" y="2.5751072961373391"/>
         </scene>
