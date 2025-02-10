@@ -13,8 +13,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var userNameTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     
-    @IBOutlet private var loginButton: UIButton!
-    
     // MARK: - Public Propeties
     let loginText = "1"
     let passText = "1"

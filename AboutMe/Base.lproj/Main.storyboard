@@ -39,8 +39,8 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="loginButtonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="BWY-0k-fps"/>
-                                    <segue destination="un2-bm-BTF" kind="show" id="slF-9Y-JfI"/>
+                                    <action selector="loginButtonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="rpO-By-MzY"/>
+                                    <segue destination="un2-bm-BTF" kind="show" id="xjp-Uf-R4t"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="wCG-O3-uRD">
@@ -89,7 +89,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="9JC-zp-AoU"/>
                     <connections>
-                        <outlet property="loginButton" destination="lur-Y2-2ED" id="VyV-Jg-O6d"/>
                         <outlet property="passwordTextField" destination="wFX-dr-OsW" id="LdA-YK-5cM"/>
                         <outlet property="userNameTextField" destination="7jc-JP-M9p" id="zJd-hI-PWB"/>
                     </connections>
