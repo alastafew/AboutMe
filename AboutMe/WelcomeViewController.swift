@@ -10,8 +10,8 @@ import UIKit
 final class WelcomeViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var welcomeUserLabel: UILabel!
-    @IBOutlet var backgroundView: UIView!
+    @IBOutlet private var welcomeUserLabel: UILabel!
+    @IBOutlet private var backgroundView: UIView!
     
     // MARK: - Public Proprties
     var userName: String!
@@ -24,7 +24,7 @@ final class WelcomeViewController: UIViewController {
     }
     
     // MARK: - IB Actions
-    @IBAction func logOutButtonAction() {
+    @IBAction private func logOutButtonAction() {
        dismiss(animated: true)
     }
     
@@ -32,15 +32,15 @@ final class WelcomeViewController: UIViewController {
     private func setGradientBackground() {
         
         let colorTop =  UIColor(
-            red: 255.0/255.0,
-            green: 50.0/255.0,
-            blue: 50.0/255.0,
+            red: 210.0/255.0,
+            green: 109.0/255.0,
+            blue: 128.0/255.0,
             alpha: 1.0).cgColor
         
         let colorBottom = UIColor(
-            red: 50.0/255.0,
-            green: 50.0/255.0,
-            blue: 255.0/255.0,
+            red: 107.0/255.0,
+            green: 148.0/255.0,
+            blue: 230.0/255.0,
             alpha: 1.0).cgColor
         
         let gradientLayer = CAGradientLayer()
