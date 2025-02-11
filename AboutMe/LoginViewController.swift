@@ -14,53 +14,52 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     
     // MARK: - Public Propeties
-    let loginText = "1"
-    let passText = "1"
+    private let user = "admin"
+    private let password = "admin"
     
     // MARK: - Override Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        userNameTextField.becomeFirstResponder()
-
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = loginText
-        
-    }
-    
-    // MARK: - IB Actions
-    @IBAction private func loginButtonPress() {
-        
-        let userLogin = userNameTextField.text ?? ""
-        let userPass = passwordTextField.text ?? ""
-        
-        if userLogin == loginText && userPass == passText {
-            print("Correct login!")
-        } else {
+    // Метод для проверки логина/пароля
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard userNameTextField.text == user, passwordTextField.text == password else {
             showAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "Please, enter correct login and password"
             )
-        }
+            // Введенное имя,пароль не совпадает, отменяем переход и показываем алерт контроллер
+            return false
+            }
+        // Введенное имя, пароль совпадает, разрешаем переход
+        return true
     }
+    // Переход по сигвэю при нажатии кнопки логин
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let welcomeVC = segue.destination as? WelcomeViewController
+        welcomeVC?.userName = user
+    }
+
+    // Метод для скрытия клавиатуры тапом по экрану Set<UITouch> после завершения ввода текста view.endEditing(true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    // MARK: - IB Actions
     
     @IBAction private func foggotUsernameAlert() {
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Username is \(loginText)"
+            andMessage: "Username is \(user)"
         )
     }
     
     @IBAction private func foggotPasswordAlert() {
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Password is \(passText)"
+            andMessage: "Password is \(password)"
         )
     }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue){
+    // Стирание логина пароля при возврате по сигвэю
+    @IBAction private func unwind(for segue: UIStoryboardSegue){
         userNameTextField.text = ""
         passwordTextField.text = ""
     }
