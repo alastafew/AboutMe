@@ -45,7 +45,7 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - IB Actions
-    
+    // Обозначаем кнопки тэгами и заводим их в общую функцию
     @IBAction private func forgotRegisterData(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops!",

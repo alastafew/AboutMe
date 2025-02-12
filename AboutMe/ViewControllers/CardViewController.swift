@@ -25,6 +25,8 @@ final class CardViewController: UIViewController {
         adminLastNameLabel.text = adminLastName
         adminJobTitleLabel.text = adminJobTitle
         adminCompanyNameLabel.text = adminCompanyName
+        //adminPhotoView = UIImageView(image: UIImage(named: "adminPhoto"))
+        //adminPhotoView = UIImageView(image: UIImage.adminPhoto)
     }
     
     // MARK: - Private Methods
