@@ -20,11 +20,11 @@ final class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        navigationItem.title = "\(adminFirstName) \(adminLastName)"
-        adminFirstNameLabel.text = adminFirstName
-        adminLastNameLabel.text = adminLastName
-        adminJobTitleLabel.text = adminJobTitle
-        adminCompanyNameLabel.text = adminCompanyName
+        navigationItem.title = "\(admin.firstName) \(admin.lastName)"
+        adminFirstNameLabel.text = admin.firstName
+        adminLastNameLabel.text = admin.lastName
+        adminJobTitleLabel.text = admin.jobTitle
+        adminCompanyNameLabel.text = admin.companyName
         //adminPhotoView = UIImageView(image: UIImage(named: "adminPhoto"))
         //adminPhotoView = UIImageView(image: UIImage.adminPhoto)
     }

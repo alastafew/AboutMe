@@ -16,7 +16,7 @@ final class BioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        bioLabel.text = bioText
+        bioLabel.text = admin.bioText
     }
     
     // MARK: - Private Methods

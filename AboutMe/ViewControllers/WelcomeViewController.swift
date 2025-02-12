@@ -21,7 +21,7 @@ final class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         welcomeUserLabel.text = "Welcome, \(userName ?? "1")!"
-        nameLabel.text = "My name is \(adminFirstName) \(adminLastName)"
+        nameLabel.text = "My name is \(admin.firstName) \(admin.lastName)"
         setGradientBackground()
     }
     
