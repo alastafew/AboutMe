@@ -14,6 +14,7 @@ final class CardViewController: UIViewController {
     @IBOutlet var adminLastNameLabel: UILabel!
     @IBOutlet var adminJobTitleLabel: UILabel!
     @IBOutlet var adminCompanyNameLabel: UILabel!
+    @IBOutlet var adminPhotoView: UIImageView!
     
     // MARK: - Override Methods
     override func viewDidLoad() {

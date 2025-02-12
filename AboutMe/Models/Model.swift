@@ -5,6 +5,8 @@
 //  Created by Ast on 12.02.2025.
 //
 
+import UIKit
+
 let adminFirstName = "Alexander"
 let adminLastName = "Ast"
 let adminJobTitle = "programmer"
