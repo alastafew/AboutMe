@@ -1,33 +1,29 @@
 //
-//  WelcomeViewController.swift
+//  CardViewController.swift
 //  AboutMe
 //
-//  Created by Ast on 09.02.2025.
+//  Created by Ast on 12.02.2025.
 //
 
 import UIKit
 
-final class WelcomeViewController: UIViewController {
+final class CardViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet private var welcomeUserLabel: UILabel!
-    @IBOutlet private var backgroundView: UIView!
-    @IBOutlet private var nameLabel: UILabel!
-    
-    // MARK: - Public Proprties
-    var userName: String!
+    @IBOutlet var adminFirstNameLabel: UILabel!
+    @IBOutlet var adminLastNameLabel: UILabel!
+    @IBOutlet var adminJobTitleLabel: UILabel!
+    @IBOutlet var adminCompanyNameLabel: UILabel!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeUserLabel.text = "Welcome, \(userName ?? "1")!"
-        nameLabel.text = "My name is \(adminFirstName) \(adminLastName)"
         setGradientBackground()
-    }
-    
-    // MARK: - IB Actions
-    @IBAction private func logOutButtonAction() {
-       dismiss(animated: true)
+        navigationItem.title = "\(adminFirstName) \(adminLastName)"
+        adminFirstNameLabel.text = adminFirstName
+        adminLastNameLabel.text = adminLastName
+        adminJobTitleLabel.text = adminJobTitle
+        adminCompanyNameLabel.text = adminCompanyName
     }
     
     // MARK: - Private Methods
