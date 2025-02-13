@@ -13,10 +13,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var userNameTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     
-    // MARK: - Public Propeties
-    private let user = "1"
-    private let password = "1"
-    
     // MARK: - Override Methods
     // Метод для скрытия клавиатуры тапом по экрану Set<UITouch> после завершения ввода текста view.endEditing(true)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -26,7 +22,7 @@ final class LoginViewController: UIViewController {
     
     // Метод для проверки логина/пароля
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userNameTextField.text == user, passwordTextField.text == password else {
+        guard userNameTextField.text == admin.user, passwordTextField.text == admin.password else {
             showAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "Please, enter correct login and password") {
@@ -41,7 +37,13 @@ final class LoginViewController: UIViewController {
     // Переход по сигвэю при нажатии кнопки логин
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = user
+        welcomeVC?.userName = admin.user
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userNameTextField.text = admin.user
+        passwordTextField.text = admin.password
     }
     
     // MARK: - IB Actions
@@ -49,7 +51,7 @@ final class LoginViewController: UIViewController {
     @IBAction private func forgotRegisterData(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Your name is \(sender.tag == 0 ? user : password)"
+            andMessage: "Your name is \(sender.tag == 0 ? admin.user : admin.password)"
         )
     }
     
