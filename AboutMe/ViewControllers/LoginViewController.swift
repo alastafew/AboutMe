@@ -22,7 +22,7 @@ final class LoginViewController: UIViewController {
     
     // Метод для проверки логина/пароля
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userNameTextField.text == admin.user, passwordTextField.text == admin.password else {
+        guard userNameTextField.text == Person.admin.login, passwordTextField.text == Person.admin.password else {
             showAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "Please, enter correct login and password") {
@@ -37,13 +37,13 @@ final class LoginViewController: UIViewController {
     // Переход по сигвэю при нажатии кнопки логин
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = admin.user
+        welcomeVC?.user = Person.admin.login
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameTextField.text = admin.user
-        passwordTextField.text = admin.password
+        userNameTextField.text = Person.admin.login
+        passwordTextField.text = Person.admin.password
     }
     
     // MARK: - IB Actions
@@ -51,7 +51,7 @@ final class LoginViewController: UIViewController {
     @IBAction private func forgotRegisterData(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Your name is \(sender.tag == 0 ? admin.user : admin.password)"
+            andMessage: "Your name is \(sender.tag == 0 ? Person.admin.login : Person.admin.password)"
         )
     }
     

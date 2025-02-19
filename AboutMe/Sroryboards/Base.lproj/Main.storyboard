@@ -168,7 +168,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adminPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ndx-Z2-iig">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ndx-Z2-iig">
                                 <rect key="frame" x="145" y="155" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ndx-Z2-iig" secondAttribute="height" multiplier="1:1" id="BCB-qz-NKg"/>
@@ -356,7 +356,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="adminPhoto" width="2101" height="2101"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -10,45 +10,25 @@ import UIKit
 final class CardViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var adminFirstNameLabel: UILabel!
-    @IBOutlet var adminLastNameLabel: UILabel!
-    @IBOutlet var adminJobTitleLabel: UILabel!
-    @IBOutlet var adminCompanyNameLabel: UILabel!
-    @IBOutlet var adminPhotoView: UIImageView!
+    @IBOutlet private var adminFirstNameLabel: UILabel!
+    @IBOutlet private var adminLastNameLabel: UILabel!
+    @IBOutlet private var adminJobTitleLabel: UILabel!
+    @IBOutlet private var adminCompanyNameLabel: UILabel!
+    @IBOutlet private var adminPhotoView: UIImageView! {
+        didSet {
+            adminPhotoView.layer.cornerRadius = adminPhotoView.frame.height / 2
+        }
+    }
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
-        navigationItem.title = "\(admin.firstName) \(admin.lastName)"
-        adminFirstNameLabel.text = admin.firstName
-        adminLastNameLabel.text = admin.lastName
-        adminJobTitleLabel.text = admin.jobTitle
-        adminCompanyNameLabel.text = admin.companyName
-        //adminPhotoView = UIImageView(image: UIImage(named: "adminPhoto"))
-        //adminPhotoView = UIImageView(image: UIImage.adminPhoto)
+        view.setGradientBackground()
+        navigationItem.title = "\(Person.admin.firstName) \(Person.admin.lastName)"
+        adminFirstNameLabel.text = Person.admin.firstName
+        adminLastNameLabel.text = Person.admin.lastName
+        adminJobTitleLabel.text = Person.admin.jobTitle
+        adminCompanyNameLabel.text = Person.admin.companyName
+        adminPhotoView.image = UIImage(named: Person.admin.photo)
     }
-    
-    // MARK: - Private Methods
-//    private func setGradientBackground() {
-//        
-//        let colorTop =  UIColor(
-//            red: 210.0/255.0,
-//            green: 109.0/255.0,
-//            blue: 128.0/255.0,
-//            alpha: 1.0).cgColor
-//        
-//        let colorBottom = UIColor(
-//            red: 107.0/255.0,
-//            green: 148.0/255.0,
-//            blue: 230.0/255.0,
-//            alpha: 1.0).cgColor
-//        
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.colors = [colorTop, colorBottom]
-//        gradientLayer.locations = [0.0, 1.0]
-//        gradientLayer.frame = view.bounds
-//        
-//        view.layer.insertSublayer(gradientLayer, at:0)
-//    }
 }
